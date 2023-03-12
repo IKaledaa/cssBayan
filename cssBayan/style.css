@@ -14,9 +14,6 @@ body{
     padding: 1em;
 }
 
-.accordeon:hover > .accordeon__item > label > .row .plus {
-    visibility: visible;
-}
 
 .accordeon__item:not(:last-child){
     border-bottom: 0.1em solid rgba(207, 64, 64, 0.6);
@@ -61,7 +58,7 @@ body{
 }
 
 .plus {
-    visibility: hiddens;
+    visibility: hidden;
     font-size: 2em;
     font-weight: 700;
     transition: 0.1s;
@@ -82,7 +79,6 @@ body{
 }
 
 
-
 .accordeon__input:checked + label >.accordeon__image{
     max-height: 100em;
     transition: 1s;
@@ -94,12 +90,14 @@ body{
 
 
 @media (hover:hover) {
+    .accordeon:hover > .accordeon__item > label > .row > .plus {
+        visibility: visible;
+    }
     .accordeon__item:hover > label > .accordeon__image{
         max-height: 100em;
         transition: 1s;
     }
-    .accordeon__item:hover > label > .row > .plus{
-        visibility: visible;
+    .accordeon__item:hover > label > .row > .plus
         transform: rotate(45deg);
         transition: all 0.25s;
     }
