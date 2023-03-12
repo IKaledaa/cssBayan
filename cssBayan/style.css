@@ -2,28 +2,39 @@ body{
     background-color: #fff
 }
 
-.accordeon{ 
-    max-width: 50rem;
-    margin: 1rem auto;
+.wrapper{
+   
 }
 
-.accordeon__item{
+.accordeon{
+    max-width: 50%;
+    margin: 0 auto;
     border: 0.06rem solid rgb(233, 14, 14);
     border-radius: 1rem;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.accordeon:hover > .accordeon__item > label > .row .plus {
+    visibility: visible;
+}
+
+.accordeon__item:not(:last-child){
+    border-bottom: 0.1em solid rgba(207, 64, 64, 0.6);
     margin: 0 0 0.31em 0;
     transition: 0.5s;
 }
 
-.accordeon__title{
-    color: #000;
-    display: block;
-    cursor: pointer;
-    padding: 1em;
-    transition: all 0.5s ease-out;
+.accordeon__item:active{
+    opacity: 0.75;
 }
 
-.accordeon__item:hover{
-    background-color: rgb(233, 14, 14);
+.accordeon__item:active > label > .row > .accordeon__title{
+    color: rgb(50, 50, 212);
+}
+
+.accordeon__item:active > label > .row > .plus{
+    color: rgb(50, 50, 212);
 }
 
 .accordeon__input{
@@ -33,9 +44,28 @@ body{
     height: 0;
 }
 
-.accordeon__input:checked ~ .accordeon__image{
-    max-height: 100em;
-    transition: 1s;
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    cursor: pointer;
+
+}
+
+.accordeon__title{
+    color: #000;
+    display: block;
+    font-weight: 700;
+    padding: 1em;
+    transition: all 0.5s ease-out;
+}
+
+.plus {
+    visibility: hidden;
+    font-size: 2em;
+    font-weight: 700;
+    transition: 0.1s;
 }
 
 .accordeon__image{
@@ -43,10 +73,49 @@ body{
     max-height: 0;
     overflow: hidden;
     transition: 0.25s;
+    cursor: pointer;
+
 }
 
 .accordeon__image img{
-    max-height: 20rem;
-    max-width: 20rem;
+    max-width: 40%;
     padding: 1em;
+}
+
+.accordeon__item:hover{
+    /* background-color: rgb(233, 14, 14); */
+}
+
+
+.accordeon__item:hover > label > .accordeon__image{
+    max-height: 100em;
+    transition: 1s;
+}
+
+.accordeon__input:checked + label >.accordeon__image{
+    max-height: 100em;
+    transition: 1s;
+}
+
+.accordeon__item:hover > label > .row > .plus{
+    transform: rotate(45deg);
+    transition: all 0.25s;
+}
+
+.accordeon__input:checked + label > .row > .plus{
+    transform: rotate(45deg);
+}
+
+
+@media (hover:hover) {
+    .plus:hover {
+        visibility: visible;
+    }
+}
+
+
+@media (hover:none){
+    .plus{
+        visibility: hidden;
+    }
 }
