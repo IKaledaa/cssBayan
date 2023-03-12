@@ -7,7 +7,6 @@ body{
 }
 
 .accordeon{
-    max-width: 50%;
     margin: 0 auto;
     border: 0.06rem solid rgb(233, 14, 14);
     border-radius: 1rem;
@@ -82,11 +81,6 @@ body{
     padding: 1em;
 }
 
-.accordeon__item:hover{
-    /* background-color: rgb(233, 14, 14); */
-}
-
-
 .accordeon__item:hover > label > .accordeon__image{
     max-height: 100em;
     transition: 1s;
@@ -117,5 +111,66 @@ body{
 @media (hover:none){
     .plus{
         visibility: hidden;
+    }
+}
+
+@media (320px <= width <= 425px){
+    .accordeon{
+        min-width: 90%;
+    }
+    .accordeon__title{
+        font-size: 0.8em;
+        padding: 0.1em;
+        transition: all 0.5s ease-out;
+    }
+    .accordeon__image img{
+        max-width: 55%;
+        padding: 1em;
+    }
+}
+
+@media (425px < width <= 820px){
+    .accordeon{
+        max-width: 80%;
+    }
+    .accordeon__title{
+        font-size: 0.9em;
+        padding: 0.1em;
+        transition: all 0.5s ease-out;
+    }
+    .accordeon__image img{
+        max-width: 50%;
+        padding: 1em;
+    }
+}
+
+
+@media (820px < width <= 1024px){
+    .accordeon{
+        max-width: 65%;
+    }
+    .accordeon__title{
+        font-size: 1em;
+        padding: 0.1em;
+        transition: all 0.5s ease-out;
+    }
+    .accordeon__image img{
+        max-width: 45%;
+        padding: 1em;
+    }
+}
+
+@media (width > 1024px){
+    .accordeon{
+        max-width: 50%;
+    }
+    .accordeon__title{
+        font-size: 1.1em;
+        padding: 0.1em;
+        transition: all 0.5s ease-out;
+    }
+    .accordeon__image img{
+        max-width: 40%;
+        padding: 1em;
     }
 }
